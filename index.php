@@ -1,7 +1,5 @@
 <?php 
-require_once('inc/header.php');
-echo "hello world";
-?>
+require_once('inc/header.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
