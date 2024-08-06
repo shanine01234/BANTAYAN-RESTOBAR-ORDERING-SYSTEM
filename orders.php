@@ -374,7 +374,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_SESSION['user_id'])) {
             if ($order_count->num_rows > 0) {
                 foreach ($order_count as $row) {
-                    $get_items = $conn->query("SELECT m.*, o.quantity FROM order_items o INNER JOIN menu m ON o.menu_id = m.id WHERE order_id = '" . $row['id'] . "'");
+                    $get_items = $conn->query("SELECT m.*, o.quantity FROM order_items o INNER JOIN menu m ON o.menu_id = m.id WHERE order_id = '" . $row['id'] . "' ");
         ?>
                     <div class="col-md-3 mb-4 d-flex align-items-stretch">
                         <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#receipt-<?= $row['id'] ?>">
@@ -412,6 +412,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </div>
                                 <div class="modal-body text-start">
                                     <p><?= date('Y-m-d', strtotime($row['created_at'])) ?></p>
+
+                                    <img src="img/<?= $row['proof'] ?>" alt="proof-gcash" class="w-100 my-3">
 
                                     <table class="table table-bordered">
                                         <thead>
