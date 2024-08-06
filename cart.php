@@ -444,16 +444,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 
-    <form method="post" class="container-fluid">
+    <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-between">
             <h4 class="text-start my-3" style="font-size:30px">Cart Items (<?= $count_cart->num_rows ?? 0 ?>)</h4>
             
            <?php 
+           if (isset($_SESSION['user_id'])) {
             if ($count_cart->num_rows > 0) {
                 ?>
                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#order-modal">Order Now</button>
                 <?php
             }
+           }
            ?>
 
         </div>
@@ -493,6 +495,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </div>
             <?php
+            }else{
+                ?>
+                <p class="my-3 text-center">Please login first</p>
+                <?php 
             }
             ?>
 
@@ -510,14 +516,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h5>Are you sure you want to order this items?</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" name="order" class="btn btn-warning" >Confirm</button>
+                        <a href="./order-form.php" name="order" class="btn btn-warning" >Confirm</a>
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-    </form>
+    </div>
 
     <!-- Footer -->
 
