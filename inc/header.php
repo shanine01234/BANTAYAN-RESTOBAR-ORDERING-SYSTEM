@@ -19,9 +19,9 @@ if (isset($_SESSION['user_id'])) {
     m.price,
     m.product_photo,
     m.id AS menu_id 
-    FROM orders o INNER JOIN order_items i ON i.order_id = o.id INNER JOIN menu m ON i.menu_id = m.id WHERE o.user_id = '$user_id'");
+    FROM orders o INNER JOIN order_items i ON i.order_id = o.id INNER JOIN menu m ON i.menu_id = m.id WHERE o.user_id = '$user_id' ");
 
-    $order_count = $conn->query("SELECT * FROM orders WHERE user_id = '$user_id'");
+    $order_count = $conn->query("SELECT * FROM orders WHERE user_id = '$user_id' ORDER BY id DESC");
 }
 
 if (isset($_GET['logout'])) {
