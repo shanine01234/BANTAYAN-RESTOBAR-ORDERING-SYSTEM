@@ -1,6 +1,6 @@
 
 <?php 
-
+require_once('../inc/function.php');
 if (!isset($_SESSION['owner_id'])) {
     header('location: login.php');
 }
