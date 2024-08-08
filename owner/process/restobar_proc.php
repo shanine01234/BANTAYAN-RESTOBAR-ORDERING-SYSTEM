@@ -10,7 +10,6 @@ if (isset($_POST['addBranch'])) {
         $msgAlert = $oop->alert('Branch already exist','danger','x-circle');
     }
 }
-
 // UPDATE BRANCH
 if (isset($_POST['updateBranch'])) {
     $result = $oop->updateBranch($_POST['branch'] ,$_POST['location'], $_POST['id']);
